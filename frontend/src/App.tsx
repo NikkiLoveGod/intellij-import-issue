@@ -1,11 +1,17 @@
 import React from 'react';
 import './App.css';
 import { debugPrint } from 'src/testing'
+import { formatCurrency } from 'common/utils/format'
 
 function App() {
 
   debugPrint('testing')
-  const currencyExample = '30'
+
+  // On windows host side, the function argument documentation works as intended
+  // It also works on MacOS
+  // On Windows, having the files on wsl2, function argument documentation does not work.
+  const currencyExample = formatCurrency(1234.56, 'USD', 'fi')
+
 
   return (
     <div className="App">
